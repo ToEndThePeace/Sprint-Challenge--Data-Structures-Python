@@ -1,4 +1,5 @@
 import time
+from binarytree import BSTNode
 
 start_time = time.time()
 
@@ -21,7 +22,20 @@ duplicates = []
 
 # Testing if a set contains a value is much faster than a list :)
 # and you don't need to iterate over its entirety!
-duplicates = set(names_1).intersection(names_2)
+# duplicates = set(names_1).intersection(names_2)
+
+# doing with a binary tree because apparently i cheated
+for i, x in enumerate(names_1):
+    if i == 0:
+        tree = BSTNode(x)
+    else:
+        tree.insert(x)
+
+for i, y in enumerate(names_2):
+    if tree.contains(y):
+        duplicates.append(y)
+
+
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
