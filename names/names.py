@@ -25,16 +25,16 @@ duplicates = []
 # duplicates = set(names_1).intersection(names_2)
 
 # doing with a binary tree because apparently i cheated
-for i, x in enumerate(names_1):
-    if i == 0:
-        tree = BSTNode(x)
-    else:
-        tree.insert(x)
+# initiate with first element in list
+tree = BSTNode(names_1[0])
+# complete the tree by slicing the first element off
+for x in names_1[1:]:
+    tree.insert(x)
 
+# use our custom tree.contains() method to rapidly search our binary tree
 for y in names_2:
     if tree.contains(y):
         duplicates.append(y)
-
 
 
 end_time = time.time()
