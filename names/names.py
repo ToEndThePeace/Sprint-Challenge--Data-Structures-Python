@@ -31,7 +31,7 @@ for i, x in enumerate(names_1):
     else:
         tree.insert(x)
 
-for i, y in enumerate(names_2):
+for y in names_2:
     if tree.contains(y):
         duplicates.append(y)
 
